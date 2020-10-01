@@ -5,6 +5,9 @@ const app = express();
 const dotenv = require('dotenv');
 dotenv.config();
 
+// static files configuration
+app.use(express.static(path.join(__dirname, 'public')));
+
 const PORT = process.env.PORT;
 const HOST = process.env.HOSTNAME;
 
@@ -26,7 +29,11 @@ app.set('views', path.join(__dirname, 'resources/views')); // __dirname: get cur
 
 // Routing
 app.get('/', (req, res) => {
-    res.render('home', {title: 'Example App'});
+    res.render('home', {title: 'Home page'});
+});
+
+app.get('/search', (req, res) => {
+    res.render('Search', {title: 'Search page'});
 });
 
 app.listen(PORT, HOST, () => console.log(`Server is running at http://${HOST}:${PORT}`));
