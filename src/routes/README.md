@@ -1,0 +1,1 @@
+Containing route configuration for views. Each route is in .js file.
