@@ -1,2 +1,31 @@
 <!-- body of a page -->
-<h1> Home Page </h1>
+<main id="main-home">
+    <label> Name: </label>
+    <input type="text" id="name-input"/>
+    <button id="add-name-btn"> Add name </button>
+    
+    <br/> <br/> <br/>
+    
+    <div>
+        <input placeholder="Search by name" id="search-input"/>
+        <button id="search-btn"> Search </button>
+    </div>
+
+    <table id="table-home">
+        <thead>
+            <th> ID </th>
+            <th> Name </th>
+            <th> Date Added </th>
+            <th> Delete </th>
+            <th> Edit </th>
+        </thead>
+        <!-- an empty tag to dynamic insert that using JS -->
+        <tbody></tbody>
+    </table>
+
+    <section hidden id="update-row">
+        <label>Name:</label>
+        <input type="text" id="update-name-input">
+        <button id="update-row-btn">Update</button>
+    </section>
+</main>

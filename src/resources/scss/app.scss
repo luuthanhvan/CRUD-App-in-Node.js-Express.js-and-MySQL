@@ -1,0 +1,27 @@
+#main-home {
+    width: 50%;
+    margin:  50px auto;
+    text-align: center;
+}
+
+#table-home { 
+    margin: 50px auto;
+}
+
+#table-home, th, td {
+    border-collapse: collapse;
+    border: 1px solid #000;
+}
+
+#table-home th, td {
+    padding: 5px;
+}
+
+#footer{
+    /*
+    clear: both;
+	border-top: 2px dotted lightpink; */
+	font-size: 18px;
+	text-align: center;
+	padding: 20px;
+}
