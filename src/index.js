@@ -1,3 +1,4 @@
+const mysql = require('mysql');
 const path = require('path'); // import path module
 const express = require('express');
 const exphbs = require('express-handlebars'); // exphbs = express-handlebars
@@ -5,7 +6,8 @@ const dotenv = require('dotenv');
 dotenv.config(); // use anytime we need
 
 const route = require('./routes');
-
+/* Database connection */
+const con = require('./config/db');
 const app = express();
 
 // Static files configuration
@@ -31,7 +33,32 @@ app.set('views', path.join(__dirname, 'resources/views')); // __dirname: get cur
 // console.log('./: ', path.resolve('./')); // /home/ltvan/nodejs/CRUD-App
 // console.log('filename: ', __filename); // /home/ltvan/nodejs/CRUD-App/src/app.js
 
+// connecting route to database
+app.use(function(req, res, next) {
+    req.con = con;
+    next();
+});
+
+// parsing body request
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
+
 /* Routing */
 route(app);
 
 app.listen(PORT, HOST, () => console.log(`Server is running at http://${HOST}:${PORT}`));
+
+/* Insert into database */
+// const dateAdded = new Date();
+// app.get('/', (req, res) => {
+//     var sql = "INSERT INTO names (name, date_added) VALUES (?, ?);";
+//     var values = [
+//         ['test1', '01/10/2020'],
+//         ['test2', '01/10/2020'],
+//         ['test2', '01/10/2020']
+//       ];
+//     connection.query(sql, [values], (err, result) => {
+//         if (err) throw err;
+//         res.send("Number of records inserted: " + result.affectedRows);
+//     });
+// });
