@@ -1,2 +1,9 @@
 <!-- body of a page -->
-<h1>{{data}}</h1>
+<h1>
+    {{#each data}}
+        {{this.id}}
+        {{this.name}}
+        {{this.category}}
+        {{this.price}}
+    {{/each}}
+</h1>

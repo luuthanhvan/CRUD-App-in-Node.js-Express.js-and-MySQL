@@ -5,7 +5,7 @@ class SiteController{
     // [GET] /
     index(req, res){
         siteModel.fetch(req.con, function(err, rows) {
-            res.render("home", { data: [rows[0].id, rows[0].name, rows[0].category, rows[0].price] });
+            res.render("home", { title: 'Home page', data: rows });
         });
     }
 }
