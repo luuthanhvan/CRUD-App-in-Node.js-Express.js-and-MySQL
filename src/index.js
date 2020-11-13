@@ -47,18 +47,3 @@ app.use(express.urlencoded({ extended: true }));
 route(app);
 
 app.listen(PORT, HOST, () => console.log(`Server is running at http://${HOST}:${PORT}`));
-
-/* Insert into database */
-// const dateAdded = new Date();
-// app.get('/', (req, res) => {
-//     var sql = "INSERT INTO names (name, date_added) VALUES (?, ?);";
-//     var values = [
-//         ['test1', '01/10/2020'],
-//         ['test2', '01/10/2020'],
-//         ['test2', '01/10/2020']
-//       ];
-//     connection.query(sql, [values], (err, result) => {
-//         if (err) throw err;
-//         res.send("Number of records inserted: " + result.affectedRows);
-//     });
-// });
